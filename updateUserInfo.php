@@ -1,8 +1,10 @@
 <?php
 include_once "header.php";
-if( isset($_SESSION['user'])){
-$userInfo=getUserByEmail($_GET['userEmail']);
 
+if( isset($_SESSION['user'])){
+    if( isset($_GET['userEmail'])) {
+        $userInfo = getUserByEmail($_GET['userEmail']);
+    }
 ?>
 <div class="container">
     <form action="controller.php?action=update&userEmail=<?php echo $_GET['userEmail']?>" method="post" enctype="multipart/form-data">
