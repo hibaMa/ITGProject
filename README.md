@@ -1,4 +1,2 @@
 # ITGProject
-regester 
-log in 
-update your information
+regester , log in , update your information
