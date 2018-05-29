@@ -1,0 +1,92 @@
+
+div{
+
+    padding: 10px;
+}
+.button{
+    display: inline-block;
+    width: 51px;
+    padding: 10px 20px;
+    background-color: green;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+.button:hover{
+    color: green;
+    background-color: white;
+}
+.container{
+    background-color: azure;
+    padding: 0 0 4px 50px;
+    width: 354px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+input[type="text"],input[type="password"],input[type="date"]{
+    padding: 5px;
+    border-radius: 5px;
+}
+select{
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 35px;
+    width: 180px;
+}
+.gender{
+    margin-left: 16px;
+    padding: 5px;
+}
+label{
+    margin: 12px;
+}
+input[type="file"]{
+    margin-left: 25px;
+}
+.regEmail{
+    margin-left: 23px;
+}
+.mailLable{
+    margin-right: 14px;
+    margin-left: 34px;
+}
+.birth{
+    width: 175px;
+}
+.regBtn{
+    border: none;
+    width: 87px;
+    height: 38px;
+    position: relative;
+    top: -1px;
+}
+.buttonDiv{
+    padding-left: 37px;
+}
+.regTitle{
+    margin-left: 9px;
+}
+.signTitle{
+    margin-left: 50px;
+}
+.signEmail{
+    margin-left: 23px;
+}
+.SMS{
+    height: 25px;
+    font-size: 22px;
+    padding: 7px;
+    margin: 10px 0px;
+    border-radius: 7px;
+    width: 393px;
+    color: white;
+}
+.goodSMS{
+    background-color: #48ce6d;
+}
+.errorSMS{
+    background-color: #ce5555;
+}
+img{
+    border-radius: 10px;
+}
