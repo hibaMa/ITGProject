@@ -4,7 +4,7 @@ include_once "header.php";
 <html>
 <body>
 <?php
-if( isset($_SESSION['user'])){
+if(isset($_SESSION['user'])){
 include_once "header.php";
 ?>
 <a href="controller.php?action=signOut">signOut</a>
