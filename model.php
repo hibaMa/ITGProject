@@ -60,6 +60,16 @@ function  updateUserInfo_db($userInfo){
     } else return "error".$prepare->errno;
 }
 
+function  updateUserInfoWthoutTheImage_db($userInfo){
+    $conn = connect_db();
+    $prepare = $conn->prepare('UPDATE `user` SET `first_name`=?, `last_name`=?, `city`=?, `gender`=?, `Birth`=? WHERE `email`=?');
+    $prepare->bind_param('ssssss',$userInfo['fname'],$userInfo['lname'], $userInfo["city"], $userInfo["gender"],$userInfo["Birth"],$userInfo["email"]);
+    $prepare->execute();
+    if (!$prepare->errno) {
+        return false;
+    } else return "error".$prepare->errno;
+}
+
 function getUserByEmail_db($email){
     $conn = connect_db();
     $prepare = $conn->prepare('SELECT * FROM `user` WHERE `email`=?');
@@ -69,5 +79,16 @@ function getUserByEmail_db($email){
         $result=$prepare->get_result();
         return $result->fetch_assoc();
     } else return "error".$prepare->errno;
+}
+
+function UserExist_db($email){
+    $conn = connect_db();
+    $prepare = $conn->prepare('SELECT * FROM `user` WHERE `email`=?');
+    $prepare->bind_param('s',$email);
+    $prepare->execute();
+    if (!$prepare->errno) {
+        $result=$prepare->get_result();
+        return $result->num_rows;
+    } else return "error";
 }
 ?>

@@ -15,6 +15,14 @@ function regester(){
 
         }
 
+        $userExist=UserExist_db($_POST["email"]);
+        if($userExist==="error"){
+            redirect("register.php?error db");
+        }
+        if($userExist){
+            redirect("register.php?error=email already exist");
+        }
+
         $userInfo["img"]=uploadUserImage("register.php");
         $userInfo["fname"]=$_POST["Fname"];
         $userInfo["lname"]=$_POST["Lname"];
@@ -109,7 +117,7 @@ function update(){
             redirect("updateUserInfo.php?error=" . "invalid email"."&userEmail=".$_GET["userEmail"]);
         }
 
-        $userInfo["img"]=uploadUserImage("updateUserInfo.php");
+
         $userInfo["fname"]=$_POST["Fname"];
         $userInfo["lname"]=$_POST["Lname"];
         $userInfo["city"]=$_POST["city"];
@@ -117,7 +125,15 @@ function update(){
         $userInfo["Birth"]=$_POST["Birth"];
         $userInfo["email"]=$_GET["userEmail"];
 
-        $result=updateUserInfo_db($userInfo);
+
+        if(!empty( $_FILES["userImg"]["name"] )){
+            $userInfo["img"]=uploadUserImage("updateUserInfo.php");
+            $result=updateUserInfo_db($userInfo);
+
+        }
+        else{
+            $result=updateUserInfoWthoutTheImage_db($userInfo);
+        }
         if(!$result){
             redirect("updateUserInfo.php?goodSMS=updated successfully"."&userEmail=".$_GET["userEmail"]);
         }else{
